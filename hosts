@@ -1,0 +1,2 @@
+[home]
+legolas ansible_host=legolas ansible_user=jalex ansible_connection=ssh

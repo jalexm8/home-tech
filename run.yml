@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+    - import_tasks: tasks/essential.yml
+
+- hosts: legolas
+  become: yes
+  tasks:
+    - import_tasks: tasks/plex.yml
