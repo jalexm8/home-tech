@@ -8,3 +8,5 @@
   become: yes
   tasks:
     - import_tasks: tasks/plex.yml
+    - import_tasks: tasks/chrome.yml
+    
