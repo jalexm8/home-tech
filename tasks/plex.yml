@@ -16,16 +16,16 @@
     state: latest
     update_cache: yes
 
-- name: create movie directory
-  ansible.builtin.file:
-    path: /opt/plexmedia/movies
-    owner: plex
-    state: directory
-    mode: '0755'
-
-- name: create tv directory
-  ansible.builtin.file:
-    path: /opt/plexmedia/tv
-    owner: plex
-    state: directory
-    mode: '0755'
+#- name: create movie directory
+#  ansible.builtin.file:
+#    path: /opt/plexmedia/movies
+#    owner: plex
+#    state: directory
+#    mode: '0755'
+#
+#- name: create tv directory
+#  ansible.builtin.file:
+#    path: /opt/plexmedia/tv
+#    owner: plex
+#    state: directory
+#    mode: '0755'

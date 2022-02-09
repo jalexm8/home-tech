@@ -29,4 +29,10 @@
     name: sshd
     state: restarted
   when: sshd_config.changed
-  
+
+- name: copy .bashrc file
+  copy:
+    src: files/bashrc
+    dest:  /home/{{ username }}/.bashrc
+    owner: "{{ username }}"
+    group: "{{ username }}"
