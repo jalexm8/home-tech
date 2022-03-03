@@ -36,3 +36,11 @@
     dest:  /home/{{ username }}/.bashrc
     owner: "{{ username }}"
     group: "{{ username }}"
+
+- name: copy update file
+  copy:
+    src: files/update
+    dest: /bin/update
+    owner: root
+    group: root
+    mode: 0755

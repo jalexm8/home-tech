@@ -1,2 +1,2 @@
 [home]
-legolas ansible_host=legolas ansible_user="{{ username }}" ansible_connection=ssh
+legolas ansible_host=192.168.0.68 ansible_user="{{ username }}" ansible_connection=ssh
