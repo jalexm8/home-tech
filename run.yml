@@ -3,10 +3,12 @@
   become: yes
   tasks: 
     - import_tasks: tasks/essential.yml
+    - import_tasks: tasks/chrome.yml
 
 - hosts: legolas
   become: yes
   tasks:
+    - import_tasks: tasks/essential-server.yml
     - import_tasks: tasks/plex.yml
     - import_tasks: tasks/chrome.yml
     
