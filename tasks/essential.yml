@@ -10,10 +10,18 @@
     name: "{{ packages }}"
     state: latest
 
-- name: copy .bashrc file
-  copy:
-    src: files/bashrc
-    dest:  /home/{{ username }}/.bashrc
+#- name: copy .bashrc file
+#  copy:
+#    src: files/bashrc
+#    dest:  /home/{{ username }}/.bashrc
+#    owner: "{{ username }}"
+#    group: "{{ username }}"
+
+- name: add custom bash prompt to .bashrc
+  ansible.builtin.lineinfile:
+    path: /home/{{ username }}/.bashrc
+    regexp: '\Z'
+    line: "{{ custom_bashrc }}"
     owner: "{{ username }}"
     group: "{{ username }}"
 
