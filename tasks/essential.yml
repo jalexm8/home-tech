@@ -1,9 +1,16 @@
 ---
-- name: Update packages
+- name: Update packages on Ubuntu
   ansible.builtin.apt:
     name: "*"
     state: latest
     update_cache: yes
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Upgrade all packages on Fedora
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+  when: ansible_facts['distribution'] == "Fedora"
 
 - name: Install essential packages
   ansible.builtin.package:

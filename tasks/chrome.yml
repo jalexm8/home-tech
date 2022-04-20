@@ -3,11 +3,29 @@
   ansible.builtin.apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub
     state: present
+  when: ansible_facts['distribution'] == "Ubuntu"
 
 - name: Add chrome repo
   ansible.builtin.apt_repository:
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
     state: present
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Add Yum signing key
+  ansible.builtin.rpm_key:
+    key: https://dl.google.com/linux/linux_signing_key.pub
+    state: present
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Add repository into repo.d list
+  ansible.builtin.yum_repository:
+    name: google-chrome
+    description: google-chrome repository
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+  when: ansible_facts['distribution'] == "Fedora"
 
 - name: Install chrome-stable
   ansible.builtin.package:
