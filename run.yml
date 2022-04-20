@@ -12,3 +12,7 @@
     - import_tasks: tasks/plex.yml
     - import_tasks: tasks/chrome.yml
     
+- hosts: fedora
+  become: yes
+  tasks:
+    - import_tasks: tasks/macos-theme.yml
