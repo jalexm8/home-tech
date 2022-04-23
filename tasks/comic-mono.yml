@@ -1,0 +1,28 @@
+---
+- name: Download foo.conf
+  get_url:
+    url: https://dtinth.github.io/comic-mono-font/ComicMono.ttf
+    dest: /tmp/ComicMono.ttf
+
+- name: Download foo.conf
+  get_url:
+    url: https://dtinth.github.io/comic-mono-font/ComicMono-Bold.ttf
+    dest: /tmp/ComicMono-Bold.ttf
+
+- name: Create fonts directory
+  ansible.builtin.file:
+    path: "/home/{{ username }}/.local/share/fonts"
+    owner: "{{ username }}"
+    state: directory
+    mode: '0755'
+  become: no
+
+- name: Install fonts
+# this should be ansible.builtin.shell but there's a bug. see https://unix.stackexchange.com/questions/633010/ansible-issue-when-using-ansible-builtin-shell
+  shell: 
+    cmd: |
+      cp /tmp/*.ttf /home/{{ username }}/.local/share/fonts
+      fc-cache -f -v
+  args:
+    executable: /usr/bin/bash
+  become: no
