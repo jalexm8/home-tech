@@ -4,15 +4,16 @@
   tasks: 
     - import_tasks: tasks/essential.yml
     - import_tasks: tasks/chrome.yml
+    - import_tasks: tasks/vscode.yml
 
 - hosts: legolas
   become: yes
   tasks:
     - import_tasks: tasks/essential-server.yml
     - import_tasks: tasks/plex.yml
-    - import_tasks: tasks/chrome.yml
     
-- hosts: fedora
+- hosts: jalex-desktop
   become: yes
   tasks:
     - import_tasks: tasks/macos-theme.yml
+    - import_tasks: tasks/comic-mono.yml
