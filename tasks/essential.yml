@@ -17,7 +17,7 @@
     name: "{{ packages }}"
     state: latest
 
-- name: add custom bash prompt to .bashrc
+- name: Add custom bash prompt to .bashrc
   ansible.builtin.lineinfile:
     path: /home/{{ username }}/.bashrc
     regexp: '\Z'
@@ -25,7 +25,7 @@
     owner: "{{ username }}"
     group: "{{ username }}"
 
-- name: copy update file
+- name: Copy update file
   copy:
     src: files/update
     dest: /bin/update

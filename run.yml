@@ -3,17 +3,17 @@
   become: yes
   tasks: 
     - import_tasks: tasks/essential.yml
-    - import_tasks: tasks/chrome.yml
-    - import_tasks: tasks/vscode.yml
+    - import_tasks: tasks/apps/chrome.yml
+    - import_tasks: tasks/apps/vscode.yml
 
 - hosts: legolas
   become: yes
   tasks:
     - import_tasks: tasks/essential-server.yml
-    - import_tasks: tasks/plex.yml
+    - import_tasks: tasks/apps/plex.yml
     
 - hosts: jalex-desktop
   become: yes
   tasks:
-    - import_tasks: tasks/macos-theme.yml
-    - import_tasks: tasks/comic-mono.yml
+    - import_tasks: tasks/themes/macos-theme.yml
+    - import_tasks: tasks/fonts/comic-mono.yml

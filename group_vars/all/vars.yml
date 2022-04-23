@@ -4,6 +4,8 @@ packages:
   - vim
   - neofetch
   - speedtest-cli
+
+fedora_packages: 
   - solaar
   - gnome-tweaks
 

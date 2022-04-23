@@ -1,7 +1,6 @@
 ---
 ### Install on Fedora
-  - name: install VS Code repo (dnf)
-    become: yes
+  - name: Install VS Code repo (dnf)
     yum_repository:
       name: code
       description: Visual Studio Code repo
@@ -11,8 +10,8 @@
       gpgcheck: yes
     when: ansible_facts['distribution'] == "Fedora"
 
-  - name: install VS Code (dnf)
-    become: yes
+  - name: Install VS Code (dnf)
     dnf:
       name: code
       state: present
+    when: ansible_facts['distribution'] == "Fedora"
