@@ -2,8 +2,9 @@
 
 > How all my services are configured.  
 
-This repository contains the configurations for most of my services:
+This repository contains the configurations for most of my devices/services:
 - [Plex](https://www.plex.tv/) for video streaming.
+- A MacOS theme for deb and rpm based distros.
 
 ## Requirements
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
