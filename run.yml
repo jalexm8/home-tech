@@ -17,3 +17,4 @@
   tasks:
     - import_tasks: tasks/themes/macos-theme.yml
     - import_tasks: tasks/fonts/comic-mono.yml
+    - import_tasks: tasks/apps/fedora-apps.yml

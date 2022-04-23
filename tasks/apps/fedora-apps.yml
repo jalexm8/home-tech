@@ -3,3 +3,40 @@
   ansible.builtin.package:
     name: "{{ fedora_packages }}"
     state: latest
+
+#####################
+# terminal settings #
+#####################
+- name: Terminal bell
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/audible-bell"
+    value: "true"
+
+- name: Terminal transparency
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/use-transparent-background"
+    value: "true"
+
+- name: Terminal transparency percentage
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/background-transparency-percent"
+    value: "5"
+
+- name: Terminal bright bold
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/bold-is-bright"
+    value: "true"
+
+- name: Terminal scrollback lines
+  dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollback-lines"
+    value: "1000000"
+
+- name: Other configurations
+# this should be ansible.builtin.shell but there's a bug. see https://unix.stackexchange.com/questions/633010/ansible-issue-when-using-ansible-builtin-shell
+  shell: 
+    cmd: |
+      gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
+  args:
+    executable: /usr/bin/bash
+  become: no

@@ -1,10 +1,10 @@
 ---
-- name: Download foo.conf
+- name: Download ComicMono.ttf
   get_url:
     url: https://dtinth.github.io/comic-mono-font/ComicMono.ttf
     dest: /tmp/ComicMono.ttf
 
-- name: Download foo.conf
+- name: Download ComicMono-Bold.ttf
   get_url:
     url: https://dtinth.github.io/comic-mono-font/ComicMono-Bold.ttf
     dest: /tmp/ComicMono-Bold.ttf
