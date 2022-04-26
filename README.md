@@ -20,3 +20,12 @@ git clone https://github.com/jalexm8/home-tech.git
 git checkout main
 git pull
 ```
+
+## To run
+```bash
+# First run
+ansible-playbook run.yml -K --ask-vault-pass -e 'custom_ssh_port=22'
+
+# after first run
+ansible-playbook run.yml -K --ask-vault-pass
+```

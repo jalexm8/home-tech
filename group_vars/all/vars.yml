@@ -14,7 +14,7 @@ fedora_packages:
   - vlc
   - qbittorrent
   - ffmpeg
-  - bash-completion
+  - spectacle
 
 custom_bashrc: |
   export EDITOR=vim
