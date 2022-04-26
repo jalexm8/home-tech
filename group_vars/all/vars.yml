@@ -17,8 +17,5 @@ fedora_packages:
   - bash-completion
 
 custom_bashrc: |
+  export EDITOR=vim
   export PS1="\[$(tput bold)\]\[\033[38;5;11m\]\w\[$(tput sgr0)\]\n\\$ \[$(tput sgr0)\]"
-
-  # Use bash-completion, if available
-  [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
