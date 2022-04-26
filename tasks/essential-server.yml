@@ -6,6 +6,13 @@
     line: "PasswordAuthentication no"
   register: sshd_config
 
+- name: Change SSH port
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^#Port 22"
+    line: "Port {{ custom_ssh_port }}"
+  register: sshd_config
+
 - name: Enable passwordless sudo for "{{ username }}"
   ansible.builtin.lineinfile:
     dest: /etc/sudoers
