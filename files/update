@@ -1,3 +1,11 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-sudo apt update && sudo apt upgrade
+operatingSystem=$(hostnamectl | grep "Operating System")
+
+if [[ "${operatingSystem}" == *"Ubuntu"* ]]; then
+  echo "OS: Ubuntu - Updating..."
+  sudo apt update && sudo apt upgrade
+elif [[ "${operatingSystem}" == *"Fedora"* ]]; then
+  echo "OS: Fedora - Updating..."
+  sudo dnf upgrade
+fi
