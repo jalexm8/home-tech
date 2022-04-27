@@ -1,0 +1,6 @@
+---
+galaxy_info:
+  author: Jack Alexander
+  description: Install flatpak and additonal flatpaks
+  license: BSD-3-Clause
+  min_ansible_version: 2.9

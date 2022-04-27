@@ -1,0 +1,34 @@
+---
+- name: Update packages on Ubuntu
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+  when: ansible_facts['distribution'] == "Ubuntu"
+
+- name: Upgrade all packages on Fedora
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+  when: ansible_facts['distribution'] == "Fedora"
+
+- name: Install essential packages
+  ansible.builtin.package:
+    name: "{{ packages }}"
+    state: latest
+
+- name: Add custom bash prompt to .bashrc
+  ansible.builtin.lineinfile:
+    path: /home/{{ username }}/.bashrc
+    regexp: '\Z'
+    line: "{{ custom_bashrc }}"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+
+- name: Copy update file
+  copy:
+    src: files/update
+    dest: /bin/update
+    owner: root
+    group: root
+    mode: 0755

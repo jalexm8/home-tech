@@ -1,0 +1,7 @@
+---
+- name: Set up Ubuntu server
+  hosts: server
+  become: yes
+
+  roles:
+    - apps/jalex.plex

@@ -1,12 +1,4 @@
 ---
-- name: Install Fedora packages
-  ansible.builtin.package:
-    name: "{{ fedora_packages }}"
-    state: latest
-
-#####################
-# terminal settings #
-#####################
 - name: Terminal bell
   dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/audible-bell"
@@ -31,25 +23,3 @@
   dconf:
     key: "/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/scrollback-lines"
     value: "1000000"
-
-- name: Other configurations
-# this should be ansible.builtin.shell but there's a bug. see https://unix.stackexchange.com/questions/633010/ansible-issue-when-using-ansible-builtin-shell
-  shell: 
-    cmd: |
-      gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
-  args:
-    executable: /usr/bin/bash
-  become: no
-
-## Flatpaks
-- name: Add the flathub flatpak repository
-  flatpak_remote:
-    name: flathub
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-    method: system
-    state: present
-
-- name: Install the Obsidian flatpak
-  community.general.flatpak:
-    name: md.obsidian.Obsidian
-    state: present
