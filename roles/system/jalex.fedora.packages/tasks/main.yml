@@ -1,0 +1,5 @@
+---
+- name: Install Fedora packages
+  ansible.builtin.package:
+    name: "{{ fedora_packages }}"
+    state: latest

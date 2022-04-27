@@ -1,0 +1,17 @@
+---
+### Install on Fedora
+  - name: Install VS Code repo (dnf)
+    yum_repository:
+      name: code
+      description: Visual Studio Code repo
+      file: vscode
+      baseurl: 'https://packages.microsoft.com/yumrepos/vscode'
+      gpgkey: 'https://packages.microsoft.com/keys/microsoft.asc'
+      gpgcheck: yes
+    when: ansible_facts['distribution'] == "Fedora"
+
+  - name: Install VS Code (dnf)
+    dnf:
+      name: code
+      state: present
+    when: ansible_facts['distribution'] == "Fedora"

@@ -1,3 +1,3 @@
 [home]
-localhost ansible_connection=local
-#legolas ansible_host=192.168.0.68 ansible_user="{{ username }}" ansible_connection=ssh
+workstation ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+#server ansible_host=192.168.0.68 ansible_user="{{ username }}" ansible_connection=ssh ansible_port="{{ custom_ssh_port }}"

@@ -1,0 +1,16 @@
+---
+- name: Set up Fedora Workstation
+  hosts: workstation
+  become: yes
+
+  roles:
+    - system/jalex.base
+    - system/jalex.fedora.packages
+    - system/jalex.fonts
+    - system/jalex.gnome.mouse
+    - system/jalex.gnome.terminal
+    - system/jalex.gnome.theme
+    - apps/jalex.chrome
+    - apps/jalex.vscode
+    - apps/jalex.flatpak
+    

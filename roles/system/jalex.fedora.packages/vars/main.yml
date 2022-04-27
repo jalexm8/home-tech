@@ -1,0 +1,12 @@
+---
+fedora_packages: 
+  - solaar
+  - gnome-tweaks
+  - barrier
+  - steam
+  - flatpak
+  - vlc
+  - qbittorrent
+  - ffmpeg
+  - spectacle
+  

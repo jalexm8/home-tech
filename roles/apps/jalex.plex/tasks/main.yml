@@ -1,0 +1,31 @@
+---
+- name: Add plex apt key
+  ansible.builtin.apt_key:
+    url: https://downloads.plex.tv/plex-keys/PlexSign.key
+    state: present
+
+- name: Add plex repo
+  ansible.builtin.apt_repository:
+    repo: deb https://downloads.plex.tv/repo/deb public main
+    state: present
+
+- name: Install plex
+  ansible.builtin.package:
+    name: 
+      - plexmediaserver
+    state: latest
+    update_cache: yes
+
+#- name: create movie directory
+#  ansible.builtin.file:
+#    path: /opt/plexmedia/movies
+#    owner: plex
+#    state: directory
+#    mode: '0755'
+#
+#- name: create tv directory
+#  ansible.builtin.file:
+#    path: /opt/plexmedia/tv
+#    owner: plex
+#    state: directory
+#    mode: '0755'

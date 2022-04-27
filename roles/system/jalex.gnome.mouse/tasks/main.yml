@@ -1,0 +1,10 @@
+---
+- name: Configure mouse accel-profile on GNOME
+# this should be ansible.builtin.shell but there's a bug. see https://unix.stackexchange.com/questions/633010/ansible-issue-when-using-ansible-builtin-shell
+  shell: 
+    cmd: |
+      gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
+  args:
+    executable: /usr/bin/bash
+  become: no
+  

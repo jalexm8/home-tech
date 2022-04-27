@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  author: Jack Alexander
+  description: Install google-chrome-stable
+  license: BSD-3-Clause
+  min_ansible_version: 2.9
+  

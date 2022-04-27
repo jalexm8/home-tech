@@ -1,0 +1,17 @@
+---
+- name: Add the flathub flatpak repository
+  flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: system
+    state: present
+
+- name: Install the Obsidian flatpak
+  community.general.flatpak:
+    name: md.obsidian.Obsidian
+    state: present
+
+- name: Install the handbrake flatpak
+  community.general.flatpak:
+    name: fr.handbrake.ghb
+    state: present
