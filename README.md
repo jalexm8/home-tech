@@ -23,9 +23,12 @@ git pull
 
 ## To run
 ```bash
-# First run
-ansible-playbook run.yml -K --ask-vault-pass -e 'custom_ssh_port=22'
+# Fedora workstation
+ansible-playbook fedora-workstation.yml --ask-become-pass --ask-vault-pass
 
-# after first run
-ansible-playbook run.yml -K --ask-vault-pass
+# Ubuntu server, pre init
+ansible-playbook ubuntu-server.yml --ask-become-pass --ask-vault-pass -e 'custom_ssh_port=22'
+
+# Ubuntu server, post init
+ansible-playbook ubuntu-server.yml --ask-become-pass --ask-vault-pass
 ```
