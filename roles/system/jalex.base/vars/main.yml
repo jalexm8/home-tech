@@ -1,0 +1,7 @@
+---
+packages: 
+  - ansible
+  - vim
+  - neofetch
+  - speedtest-cli
+  - rsync

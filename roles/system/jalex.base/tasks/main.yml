@@ -17,13 +17,13 @@
     name: "{{ packages }}"
     state: latest
 
-- name: Add custom bash prompt to .bashrc
-  ansible.builtin.lineinfile:
-    path: /home/{{ username }}/.bashrc
-    regexp: '\Z'
-    line: "{{ custom_bashrc }}"
+- name: Copy bashrc file
+  copy:
+    src: files/.bashrc
+    dest: "/home/{{ username }}/.bashrc"
     owner: "{{ username }}"
     group: "{{ username }}"
+    mode: 0644
 
 - name: Copy update file
   copy:
@@ -32,3 +32,18 @@
     owner: root
     group: root
     mode: 0755
+
+- name: Copy backup file
+  copy:
+    src: files/backup.sh
+    dest: /bin/backup.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Configure backup cron
+  become: no
+  ansible.builtin.cron:
+    name: "Perform backup"
+    minute: "*/30"
+    job: "/bin/backup.sh"
