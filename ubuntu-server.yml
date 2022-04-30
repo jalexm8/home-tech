@@ -4,4 +4,6 @@
   become: yes
 
   roles:
+    - system/jalex.base
+    - system/jalex.base-server
     - apps/jalex.plex
