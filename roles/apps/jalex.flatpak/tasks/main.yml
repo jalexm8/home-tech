@@ -6,12 +6,18 @@
     method: system
     state: present
 
-- name: Install the Obsidian flatpak
-  community.general.flatpak:
-    name: md.obsidian.Obsidian
-    state: present
-
 - name: Install the handbrake flatpak
   community.general.flatpak:
     name: fr.handbrake.ghb
     state: present
+
+- name: Install the discord flatpak
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+
+- name: Install the Thunderbird flatpak
+  community.general.flatpak:
+    name: org.mozilla.Thunderbird
+    state: present
+  

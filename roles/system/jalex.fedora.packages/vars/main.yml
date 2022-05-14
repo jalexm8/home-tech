@@ -9,4 +9,5 @@ fedora_packages:
   - qbittorrent
   - ffmpeg
   - spectacle
+  - pavucontrol
   
