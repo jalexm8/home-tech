@@ -1,7 +1,11 @@
 ---
 packages: 
   - ansible
+  - ansible-lint
   - vim
   - neofetch
   - speedtest-cli
   - rsync
+  - torbrowser-launcher
+  - clamtk
+  
