@@ -1,4 +1,13 @@
 ---
+- name: Configure dnf
+  ansible.builtin.copy:
+    src: files/dnf.conf
+    dest: /etc/dnf/dnf.conf
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_facts['distribution'] == "Fedora"
+
 - name: Update packages on Ubuntu
   ansible.builtin.apt:
     name: "*"
@@ -47,3 +56,20 @@
     name: "Perform backup"
     minute: "*/30"
     job: "/bin/backup.sh"
+
+- name: Copy virus scan file
+  copy:
+    src: files/av_scan.sh
+    dest: /bin/av_scan.sh
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Configure virus scan cron
+  become: yes
+  ansible.builtin.cron:
+    name: "Perform virus scan"
+    hour: "11"
+    minute: "00"
+    weekday: "6"
+    job: "/bin/av_scan.sh"
